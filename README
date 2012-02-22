@@ -6,7 +6,7 @@ the webapp
 - allow user to create a user id (email/password), give him a secret key
 - accept link and secret-key
 - serve a feed based on the secret-key
-- using Go on GAE
+- using python on GAE
 
 the chrome extension
 --------------------
