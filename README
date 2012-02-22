@@ -1,0 +1,15 @@
+feeditlater, a very simple read-it-later service that publishes your links as a
+rss feed.
+
+the webapp
+----------
+- allow user to create a user id (email/password), give him a secret key
+- accept link and secret-key
+- serve a feed based on the secret-key
+- using Go on GAE
+
+the chrome extension
+--------------------
+- user puts in secret key in the settings
+- user clicks a button on any page
+- the link is sent to the webapp
