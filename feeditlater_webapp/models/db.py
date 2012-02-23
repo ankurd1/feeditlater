@@ -12,5 +12,6 @@ db.define_table('users',
 
 db.define_table('links',
         Field('user_id', db.users),
-        Field('url', length=128, notnull=True)
+        Field('url', length=128, notnull=True),
+        Field('created_on', 'datetime')
         )

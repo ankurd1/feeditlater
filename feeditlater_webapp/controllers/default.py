@@ -1,5 +1,6 @@
 import string
 import random
+import datetime
 
 def index():
     user_reg_form = SQLFORM(db.users, fields=['email'])
@@ -24,8 +25,26 @@ def submit_link():
         if user is None:
             return dict(msg="Invalid")
         else:
-            db.links.insert(user_id=user.id, url=request.get_vars['url'])
+            db.links.insert(user_id=user.id, url=request.get_vars['url'],
+                    created_on=datetime.datetime.now())
             return dict(msg="Success")
     else:
         return dict(msg="Invalid")
 
+
+def feed():
+    if 'secret' in request.get_vars:
+        user = db(db.users.secret==request.get_vars['secret']).select().first()
+        if user is None:
+            return dict(msg="Invalid")
+        else:
+            entries = []
+            for link in user.links.select():
+                entries.append(dict(title=link.url, link=link.url,
+                    description='', created_on=link.created_on))
+            response.view = 'generic.rss'
+            return dict(title=user.email + "'s feed-it-later feed", 
+                    link='', description='', created_on='',
+                    entries=entries)
+    else:
+        return dict(msg="Invalid")
