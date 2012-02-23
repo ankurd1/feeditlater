@@ -1,33 +1,22 @@
 <html>
 <head>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="jquery-latest.js"></script>
 
-<style>
-#body {
-  width:357px;
-  overflow-x:hidden;
-}
-</style>
+<script>
+    $(function() {
+        chrome.tabs.getSelected(null, function(tab) {
+            $.post("http://localhost:8000/submit_link",
+                {secret:localStorage['secret'], url:tab.url},
+                function(data, textStatus, jqXHR) {
+                    //FIXME
+                }, "JSON");
+        });
+    });
 
-  <script>
-    window.addEventListener("load", windowLoaded, false);
-    function windowLoaded() {
-      chrome.tabs.getSelected(null, function(tab) {
-        //alert(tab.url);
-        //$("#body").css("width",tab.url.length());
-        document.getElementById('currentLink').innerHTML = tab.url;
-        
-      });
-    }
-    
-  </script>
+</script>
 </head>
-<div id="body">
-<div id="currentLink">Loading ...</div>
-<hr />
-</div>
+
+<body>
+    <div id="msg">Success!</div>
+</body>
 </html>
-
-
-
-

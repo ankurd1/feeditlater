@@ -1,9 +1,10 @@
 {
-  "name": "FEED IT LATER",
+  "name": "Feed it later",
   "version": "1.0",
   "options_page": "options.html",
-  "description": "feeditlater, a very simple read-it-later service that publishes your links as a
-rss feed.",
+  "description": "feeditlater is a very simple read-it-later service that
+  publishes your links as a rss feed. This extension allows you to send
+  the current page url to your feeditlater list.",
   "browser_action": {
     "default_icon": "icon.png",
     "popup": "helper.html"

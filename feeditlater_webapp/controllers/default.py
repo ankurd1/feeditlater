@@ -18,6 +18,7 @@ def index():
     return dict(user_reg_form=user_reg_form, user_secret=None)
 
 def submit_link():
+    response.view = 'generic.json'
     if 'secret' in request.post_vars and 'url' in request.post_vars:
         if (IS_URL()(request.post_vars['url'])[1] is not None):
             return dict(msg="Invalid")
