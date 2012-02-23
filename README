@@ -1,15 +1,26 @@
 feeditlater, a very simple read-it-later service that publishes your links as a
 rss feed.
 
+http://www.feeditlater.appspot.com/feeditlater_webapp/
+
 the webapp
 ----------
 - allow user to create a user id (email/password), give him a secret key
 - accept link and secret-key
 - serve a feed based on the secret-key
-- using python on GAE
+- using web2py/python on GAE
 
 the chrome extension
 --------------------
 - user puts in secret key in the settings
 - user clicks a button on any page
 - the link is sent to the webapp
+
+TODO
+----
+- feed serving url should be like /secret/feed.rss
+- Same for feed submission
+- feed submission should be through post
+- Dir/code cleanup
+- Make the site prettier and proper
+- Fix the extension
