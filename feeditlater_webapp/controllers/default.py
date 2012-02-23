@@ -18,14 +18,14 @@ def index():
     return dict(user_reg_form=user_reg_form, user_secret=None)
 
 def submit_link():
-    if 'secret' in request.get_vars and 'url' in request.get_vars:
-        if (IS_URL()(request.get_vars['url'])[1] is not None):
+    if 'secret' in request.post_vars and 'url' in request.post_vars:
+        if (IS_URL()(request.post_vars['url'])[1] is not None):
             return dict(msg="Invalid")
-        user = db(db.users.secret==request.get_vars['secret']).select().first()
+        user = db(db.users.secret==request.post_vars['secret']).select().first()
         if user is None:
             return dict(msg="Invalid")
         else:
-            db.links.insert(user_id=user.id, url=request.get_vars['url'],
+            db.links.insert(user_id=user.id, url=request.post_vars['url'],
                     created_on=datetime.datetime.now())
             return dict(msg="Success")
     else:
@@ -33,8 +33,10 @@ def submit_link():
 
 
 def feed():
-    if 'secret' in request.get_vars:
-        user = db(db.users.secret==request.get_vars['secret']).select().first()
+    response.view = 'default/submit_link.html'
+    if (len(request.args) != 0):
+        secret = request.args[0]
+        user = db(db.users.secret==secret).select().first()
         if user is None:
             return dict(msg="Invalid")
         else:

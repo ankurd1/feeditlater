@@ -18,9 +18,6 @@ the chrome extension
 
 TODO
 ----
-- feed serving url should be like /secret/feed.rss
-- Same for feed submission
-- feed submission should be through post
 - Dir/code cleanup
 - Make the site prettier and proper
 - Fix the extension
