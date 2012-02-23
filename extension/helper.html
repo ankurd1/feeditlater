@@ -1,0 +1,33 @@
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+
+<style>
+#body {
+  width:357px;
+  overflow-x:hidden;
+}
+</style>
+
+  <script>
+    window.addEventListener("load", windowLoaded, false);
+    function windowLoaded() {
+      chrome.tabs.getSelected(null, function(tab) {
+        //alert(tab.url);
+        //$("#body").css("width",tab.url.length());
+        document.getElementById('currentLink').innerHTML = tab.url;
+        
+      });
+    }
+    
+  </script>
+</head>
+<div id="body">
+<div id="currentLink">Loading ...</div>
+<hr />
+</div>
+</html>
+
+
+
+

@@ -1,0 +1,14 @@
+{
+  "name": "FEED IT LATER",
+  "version": "1.0",
+  "options_page": "options.html",
+  "description": "feeditlater, a very simple read-it-later service that publishes your links as a
+rss feed.",
+  "browser_action": {
+    "default_icon": "icon.png",
+    "popup": "helper.html"
+  },
+  "permissions": [
+    "tabs"
+  ]
+}
