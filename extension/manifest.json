@@ -10,6 +10,7 @@
     "popup": "helper.html"
   },
   "permissions": [
-    "tabs"
+    "tabs",
+	"<all_urls>"
   ]
 }

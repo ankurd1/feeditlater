@@ -21,16 +21,16 @@ def submit_link():
     response.view = 'generic.json'
     if 'secret' in request.post_vars and 'url' in request.post_vars:
         if (IS_URL()(request.post_vars['url'])[1] is not None):
-            return dict(msg="Invalid")
+            return dict(msg="Failed")
         user = db(db.users.secret==request.post_vars['secret']).select().first()
         if user is None:
-            return dict(msg="Invalid")
+            return dict(msg="Failed")
         else:
             db.links.insert(user_id=user.id, url=request.post_vars['url'],
                     created_on=datetime.datetime.now())
             return dict(msg="Success")
     else:
-        return dict(msg="Invalid")
+        return dict(msg="Failed")
 
 
 def feed():

@@ -5,10 +5,10 @@
 <script>
     $(function() {
         chrome.tabs.getSelected(null, function(tab) {
-            $.post("http://localhost:8000/submit_link",
+            $.post("http://feeditlater.appspot.com/submit_link",
                 {secret:localStorage['secret'], url:tab.url},
                 function(data, textStatus, jqXHR) {
-                    //FIXME
+					$("#msg").html(data.msg);
                 }, "JSON");
         });
     });
@@ -17,6 +17,6 @@
 </head>
 
 <body>
-    <div id="msg">Success!</div>
+    <div id="msg"></div>
 </body>
 </html>
