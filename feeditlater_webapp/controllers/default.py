@@ -3,6 +3,7 @@ import random
 import datetime
 
 def index():
+    response.title = "FeedItLater"
     user_reg_form = SQLFORM(db.users, fields=['email'])
     if user_reg_form.validate():
         user = db(db.users.email==user_reg_form.vars.email).select().first()

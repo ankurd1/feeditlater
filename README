@@ -1,7 +1,7 @@
 feeditlater, a very simple read-it-later service that publishes your links as a
 rss feed.
 
-http://www.feeditlater.appspot.com/feeditlater_webapp/
+http://www.feeditlater.appspot.com/
 
 the webapp
 ----------
@@ -20,3 +20,4 @@ TODO
 ----
 - Dir/code cleanup
 - Make the site prettier and proper
+- Improve user account experience
